@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:ganpati_bappa/Data/constant.dart';
-import 'package:audioplayers/audioplayers.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,31 +14,25 @@ class _HomePageState extends State<HomePage> {
 
   playLocal() async {
     try {
-      int result = 
-          await audioPlayer.play('images/mp3/Aarti.mp3', 
-          isLocal: true,
-          volume: 0.5,
-          );
-      print(result);
+      audioPlayer.play('sound.mp3'); 
     } catch (e) {
       print(e.toString());
     }
   }
-  
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-          body: Column(
+          body: Column(  
         children: [
           Expanded(
             flex: 4,
             child: Stack(
               children: [
                 isAarti == false
-                    ? Container()g
+                    ? Container()
                     : Positioned(
                         left: 10.0,
                         right: 10.0,
@@ -96,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                       height: MediaQuery.of(context).size.height * 0.6,
                       fit: BoxFit.fitHeight,
                       image: AssetImage("images/bappa.png"),
-                         ),
+                    ),
                   ),
                 ),
                 Align(
